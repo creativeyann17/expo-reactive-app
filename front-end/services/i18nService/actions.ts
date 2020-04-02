@@ -1,8 +1,8 @@
-import * as actionTypes from './actionTypes';
+import * as actionTypes from "./actionTypes";
 
-export const locale = (locale: string) => {
+export const setLocale = (locale: string) => {
   return {
-    type: actionTypes.I18N_SERVICE_LOCALE,
+    type: actionTypes.I18N_SERVICE_SET_LOCALE,
     locale: locale
   };
 };

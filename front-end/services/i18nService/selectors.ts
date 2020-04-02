@@ -1,1 +1,3 @@
-export const locale = state => state.i18nServiceReducer.locale;
+import { State } from "../index";
+
+export const locale = (state: State) => state.i18nServiceReducer.locale;
