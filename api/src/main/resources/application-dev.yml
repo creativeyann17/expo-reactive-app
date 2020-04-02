@@ -1,0 +1,3 @@
+logging:
+  level:
+    org.creativeyann17: DEBUG

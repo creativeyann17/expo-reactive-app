@@ -1,0 +1,6 @@
+*.iml
+.expo
+node
+node_modules
+web-build
+target
