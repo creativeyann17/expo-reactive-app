@@ -11,7 +11,7 @@ import { debug } from "../../utils/logger";
 export const init = (): string => {
   i18n.translations = {
     "en-US": en_US,
-    "fr-FR": fr_FR
+    "fr-FR": fr_FR,
   };
   i18n.defaultLocale = "en-US";
   i18n.locale = getDefaultLocale();

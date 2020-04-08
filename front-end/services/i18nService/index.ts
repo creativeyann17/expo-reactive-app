@@ -1,13 +1,12 @@
-import { call, put, takeLatest } from "redux-saga/effects";
-import * as actions from "./actions";
+import { put, takeLatest } from "redux-saga/effects";
 import * as actionTypes from "./actionTypes";
-import { SetLocaleAction } from "./types";
-import { setLocale } from "./helper";
+import { setLocale } from "./actions";
+import { init } from "./helper";
 
-export function* watchSetLocale(action: SetLocaleAction) {
-  // setLocale(action.locale);
+export function* watchInit() {
+  yield put(setLocale(init()));
 }
 
 export default function* watchAsync() {
-  yield takeLatest(actionTypes.I18N_SERVICE_SET_LOCALE, watchSetLocale);
+  yield takeLatest(actionTypes.I18N_SERVICE_INIT, watchInit);
 }

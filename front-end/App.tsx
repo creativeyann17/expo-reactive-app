@@ -1,7 +1,8 @@
 import React, { Suspense } from "react";
 import { Provider } from "react-redux";
 import { View, Platform, StyleSheet } from "react-native";
-import { store } from "./services";
+import includes from "lodash/includes";
+import configureStore from "./services";
 import LoadingLayout from "./layouts/LoadingLayout";
 import I18nLayout from "./layouts/I18nLayout";
 
@@ -18,12 +19,18 @@ const styles = StyleSheet.create({
 });
 
 export default function App() {
+  const store = configureStore();
+
   return (
     <Provider store={store}>
       <View style={styles.container}>
         <Suspense fallback={<LoadingLayout />}>
           <I18nLayout>
-            {Platform.OS === "web" ? <WebLayout /> : <MobileLayout />}
+            {includes(["android", "ios"], Platform.OS) ? (
+              <MobileLayout />
+            ) : (
+              <WebLayout />
+            )}
           </I18nLayout>
         </Suspense>
       </View>

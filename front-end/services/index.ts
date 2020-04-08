@@ -1,33 +1,38 @@
-import { combineReducers } from "redux";
+import { applyMiddleware, createStore, combineReducers, compose } from "redux";
 import { all } from "redux-saga/effects";
-import { applyMiddleware, createStore } from "redux";
 import createSagaMiddleware from "redux-saga";
 import i18nServiceReducer from "./i18nService/reducer";
 import { Reducer } from "./i18nService/types";
 import i18ServiceSaga from "./i18nService";
 
-const rootReducer = combineReducers({
-  i18nServiceReducer
-});
-
-function* rootSaga() {
-  yield all([i18ServiceSaga()]);
-}
-
 export interface State {
   i18nServiceReducer: Reducer;
 }
 
-const sagaMiddleware = createSagaMiddleware();
-let middlewares = [sagaMiddleware];
+export default function configureStore() {
+  const rootReducer = combineReducers({
+    i18nServiceReducer,
+  });
 
-if (__DEV__) {
-  const { Platform } = require("react-native");
-  if (Platform.OS === "web") {
+  function* rootSaga() {
+    yield all([i18ServiceSaga()]);
+  }
+
+  const sagaMiddleware = createSagaMiddleware();
+  let middlewares = [sagaMiddleware];
+  let composeEnhancer = compose;
+
+  if (__DEV__) {
     const { logger } = require("redux-logger");
     middlewares = [...middlewares, logger];
+    composeEnhancer =
+      (window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
   }
-}
 
-export const store = createStore(rootReducer, applyMiddleware(...middlewares));
-sagaMiddleware.run(rootSaga);
+  const store = createStore(
+    rootReducer,
+    composeEnhancer(applyMiddleware(...middlewares))
+  );
+  sagaMiddleware.run(rootSaga);
+  return store;
+}
