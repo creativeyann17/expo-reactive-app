@@ -1,7 +1,7 @@
 export default {
   app: {
-    loading: "Loading ...",
-    welcome: "Welcome !",
-    withFallback: "with fallback",
+    loading: 'Loading ...',
+    welcome: 'Welcome !',
+    withFallback: 'with fallback',
   },
 };

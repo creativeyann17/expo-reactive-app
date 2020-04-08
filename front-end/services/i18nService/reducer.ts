@@ -1,6 +1,6 @@
-import * as actionTypes from "./actionTypes";
-import { init, setLocale } from "./helper";
-import { i18nServiceActionTypes, Reducer } from "./types";
+import * as actionTypes from './actionTypes';
+import { init, setLocale } from './helper';
+import { i18nServiceActionTypes, Reducer } from './types';
 
 const initialState: Reducer = {
   locale: init(),

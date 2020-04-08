@@ -1,6 +1,6 @@
-import React from "react";
-import I18nSwitch from "../components/I18nSwitch";
-import { View, Text } from "react-native";
+import React from 'react';
+import I18nSwitch from '../components/I18nSwitch';
+import { View, Text } from 'react-native';
 
 const WebLayout = () => {
   return (

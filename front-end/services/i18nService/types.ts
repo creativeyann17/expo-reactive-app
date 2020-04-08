@@ -1,4 +1,4 @@
-import * as actionTypes from "./actionTypes";
+import * as actionTypes from './actionTypes';
 
 export interface InitI18n {
   type: typeof actionTypes.I18N_SERVICE_INIT;

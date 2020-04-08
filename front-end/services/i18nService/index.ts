@@ -1,7 +1,7 @@
-import { put, takeLatest } from "redux-saga/effects";
-import * as actionTypes from "./actionTypes";
-import { setLocale } from "./actions";
-import { init } from "./helper";
+import { put, takeLatest } from 'redux-saga/effects';
+import * as actionTypes from './actionTypes';
+import { setLocale } from './actions';
+import { init } from './helper';
 
 export function* watchInit() {
   yield put(setLocale(init()));

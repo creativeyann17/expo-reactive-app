@@ -1,8 +1,8 @@
-import React from "react";
-import { StyleSheet } from "react-native";
-import Constants from "expo-constants";
-import I18nSwitch from "../components/I18nSwitch";
-import { View, Text } from "react-native";
+import React from 'react';
+import { StyleSheet } from 'react-native';
+import Constants from 'expo-constants';
+import I18nSwitch from '../components/I18nSwitch';
+import { View, Text } from 'react-native';
 
 const MobileLayout = () => {
   return (
@@ -16,7 +16,7 @@ const MobileLayout = () => {
 const styles = StyleSheet.create({
   container: {
     borderWidth: 1,
-    borderColor: "red",
+    borderColor: 'red',
     marginTop: Constants.statusBarHeight,
   },
 });

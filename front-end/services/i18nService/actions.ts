@@ -1,5 +1,5 @@
-import * as actionTypes from "./actionTypes";
-import { i18nServiceActionTypes } from "./types";
+import * as actionTypes from './actionTypes';
+import { i18nServiceActionTypes } from './types';
 
 export const initI18n = () => {
   return {
