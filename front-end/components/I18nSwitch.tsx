@@ -11,7 +11,7 @@ interface Props {
 
 const mapDispatchToProps = (dispatch: any) => ({
   changeLocaleFR: () => dispatch(setLocale("fr-FR")),
-  changeLocaleEN: () => dispatch(setLocale("en-US"))
+  changeLocaleEN: () => dispatch(setLocale("en-US")),
 });
 
 const I18nSwitch = (props: Props) => {
@@ -20,7 +20,7 @@ const I18nSwitch = (props: Props) => {
       <Text>
         {i18n.t("app.welcome", { defaultValue: "No Welcome message !!!" })}
       </Text>
-      <Text>{i18n.t("app.withFllback")}</Text>
+      <Text>{i18n.t("app.withFallback")}</Text>
       <Button onPress={() => props.changeLocaleFR()} title="Français" />
       <Button onPress={() => props.changeLocaleEN()} title="English" />
     </View>

@@ -1,5 +1,6 @@
 export default {
   app: {
-    welcome: "Bienvenue !!"
-  }
-}
+    loading: "Chargement ...",
+    welcome: "Bienvenue !",
+  },
+};
