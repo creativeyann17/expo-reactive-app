@@ -8,24 +8,31 @@ import fr_FR from './i18n/fr_FR';
 
 import { debug } from '../../utils/logger';
 
+const DEFAULT_LOCALE = 'en-US';
+
 export const init = (): string => {
   i18n.translations = {
+    // generic
+    en: en_US,
+    fr: fr_FR,
+    // specific
     'en-US': en_US,
     'fr-FR': fr_FR,
   };
-  i18n.defaultLocale = 'en-US';
-  i18n.locale = getDefaultLocale();
+  i18n.defaultLocale = DEFAULT_LOCALE;
+  i18n.locale = getSystemLocale();
   i18n.fallbacks = true;
 
   debug('Init i18n locale:', i18n.locale);
 
-  return i18n.locale;
+  return i18n.currentLocale();
 };
 
 export const setLocale = (locale: string) => {
   i18n.locale = locale;
+  return i18n.currentLocale();
 };
 
-export const getDefaultLocale = () => {
-  return get(Localization, 'locale', 'en-US');
+export const getSystemLocale = () => {
+  return get(Localization, 'locale', DEFAULT_LOCALE);
 };

@@ -1,12 +1,18 @@
 import { put, takeLatest } from 'redux-saga/effects';
+import toString from 'lodash/toString';
 import * as actionTypes from './actionTypes';
-import { setLocale } from './actions';
-import { init } from './helper';
+import { i18nServiceActionTypes } from './types';
+import { setLocaleSuccess, setLocaleFailure } from './actions';
+import { setLocale } from './helper';
 
-export function* watchInit() {
-  yield put(setLocale(init()));
+export function* watchSetLocale({ locale }: i18nServiceActionTypes) {
+  try {
+    yield put(setLocaleSuccess(setLocale(locale)));
+  } catch (e) {
+    yield put(setLocaleFailure(locale, toString(e)));
+  }
 }
 
 export default function* watchAsync() {
-  yield takeLatest(actionTypes.I18N_SERVICE_INIT, watchInit);
+  yield takeLatest(actionTypes.I18N_SERVICE_SET_LOCALE_REQUEST, watchSetLocale);
 }

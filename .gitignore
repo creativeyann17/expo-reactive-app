@@ -1,7 +1,9 @@
 *.iml
 .expo
+.idea
 node
 node_modules
 web-build
 target
 .vscode
+.attach_pid*

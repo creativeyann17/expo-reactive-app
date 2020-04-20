@@ -18,3 +18,13 @@ management:
       exposure:
         include:
           - health
+security:
+  resources:
+    - "/"
+    - "/fonts/**"
+    - "/static/**"
+    - "/pwa/**"
+    - "/*.json"
+    - "/*.png"
+    - "/*.jpg"
+    - "/*.ico"
