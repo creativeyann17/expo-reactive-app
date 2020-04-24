@@ -9,7 +9,7 @@ export function* watchSetLocale({ locale }: i18nServiceActionTypes) {
   try {
     yield put(setLocaleSuccess(setLocale(locale)));
   } catch (e) {
-    yield put(setLocaleFailure(locale, toString(e)));
+    yield put(setLocaleFailure(locale, e));
   }
 }
 

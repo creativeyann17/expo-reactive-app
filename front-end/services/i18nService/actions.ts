@@ -15,7 +15,7 @@ export const setLocaleSuccess = (locale: string): i18nServiceActionTypes => {
   };
 };
 
-export const setLocaleFailure = (locale: string, error: string): i18nServiceActionTypes => {
+export const setLocaleFailure = (locale: string, error: any): i18nServiceActionTypes => {
   return {
     type: actionTypes.I18N_SERVICE_SET_LOCALE_FAILURE,
     locale: locale,

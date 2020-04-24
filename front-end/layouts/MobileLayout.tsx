@@ -17,7 +17,7 @@ const styles = StyleSheet.create({
   container: {
     borderWidth: 1,
     borderColor: 'red',
-    marginTop: Constants.statusBarHeight,
+    marginTop: Constants.statusBarHeight, // 0 on web, I could use the same layout
   },
 });
 

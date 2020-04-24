@@ -10,6 +10,7 @@ import includes from 'lodash/includes';
 import configureStore from './services';
 import LoadingLayout from './layouts/LoadingLayout';
 import I18nLayout from './layouts/I18nLayout';
+import { wsServiceOpen } from './services/wsService/actions';
 
 const WebLayout = React.lazy(() => import('./layouts/WebLayout'));
 const MobileLayout = React.lazy(() => import('./layouts/MobileLayout'));
@@ -23,18 +24,32 @@ const styles = StyleSheet.create({
   },
 });
 
-const theme = {};
+const theme = {
+  Input: {
+    containerStyle: {
+      marginTop: 10,
+      marginBottom: 10,
+    },
+    placeholderTextColor: 'lightgrey',
+  },
+  /*colors: {
+    primary: '#333',
+    secondary: '#fff',
+  },*/
+};
 
 export default function App() {
   if (__DEV__ && Platform.OS !== 'web') {
     Logs.disableExpoCliLogging();
   }
 
-  const [isLoadingComplete, setLoadingComplete] = React.useState(false);
+  const [isLoadingComplete, setLoadingComplete] = React.useState(true);
 
   const store = configureStore();
 
-  React.useEffect(() => {
+  store.dispatch(wsServiceOpen());
+
+  /*React.useEffect(() => {
     async function loadResourcesAndDataAsync() {
       try {
         SplashScreen.preventAutoHide();
@@ -50,7 +65,7 @@ export default function App() {
       }
     }
     loadResourcesAndDataAsync();
-  }, []);
+  }, []);*/
 
   EStyleSheet.clearCache();
   EStyleSheet.build();

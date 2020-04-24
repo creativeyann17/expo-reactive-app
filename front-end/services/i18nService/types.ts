@@ -19,7 +19,7 @@ interface SetLocaleFailureAction {
 export interface Reducer {
   locale: string;
   isLocaleRefreshing: boolean;
-  error: string | null;
+  error: any | null;
 }
 
 export type i18nServiceActionTypes =
