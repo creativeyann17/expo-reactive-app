@@ -17,7 +17,7 @@
     "expo-font": "^8.1.1",
     "expo-localization": "^8.1.0",
     "i18n-js": "^3.5.1",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.23",
     "react": "~16.9.0",
     "react-dom": "~16.9.0",
     "react-native": "https://github.com/expo/react-native/archive/sdk-37.0.0.tar.gz",
